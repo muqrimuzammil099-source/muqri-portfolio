@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #050810;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0f1e; }
+  ::-webkit-scrollbar-thumb { background: #14b8a6; border-radius: 2px; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(20,184,166,0.06);
+    border-color: rgba(20,184,166,0.3);
+    box-shadow: 0 0 30px rgba(20,184,166,0.1);
+  }
+  .glow-text {
+    text-shadow: 0 0 40px rgba(20,184,166,0.5);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #14b8a6 0%, #6366f1 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(135deg, #14b8a6, #6366f1);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(20,184,166,0.4);
+  }
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-semibold text-sm border border-teal-500/40 text-teal-400 transition-all duration-300;
+  }
+  .btn-outline:hover {
+    @apply border-teal-400 bg-teal-500/10;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(20,184,166,0.2);
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold mb-4;
+    font-family: 'Syne', sans-serif;
+  }
+  .section-label {
+    @apply text-teal-400 text-sm font-mono font-medium tracking-widest uppercase mb-3 block;
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float linear infinite;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, #14b8a6, #6366f1, transparent);
+}
+
+.skill-bar-fill {
+  transition: width 1.5s ease-in-out;
+}
